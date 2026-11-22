@@ -1,0 +1,7 @@
+=== RUN   TestHeldTransitionRecovery
+[main  ] INFO 2026/11/22 22:41:41 using sqlite database: :memory:?_pragma=busy_timeout(5000)&_pragma=journal_mode(WAL)&_pragma=synchronous(NORMAL)&_pragma=foreign_keys(1)&_pragma=auto_vacuum(INCREMENTAL)&_pragma=cache_size(-16384)&_txlock=immediate
+    held_recovery_probe_test.go:44: cycle=1 elapsed_since_wrong_limit=6.2046042s actual_percent=30 requests=3
+    held_recovery_probe_test.go:44: cycle=2 elapsed_since_wrong_limit=11.207652747s actual_percent=30 requests=4
+    held_recovery_probe_test.go:44: cycle=3 elapsed_since_wrong_limit=16.208469209s actual_percent=30 requests=5
+--- PASS: TestHeldTransitionRecovery (18.69s)
+PASS

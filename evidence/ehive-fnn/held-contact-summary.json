@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "selected_hold_seconds": [
+    30,
+    60,
+    30,
+    60,
+    30,
+    30
+  ],
+  "hold_times_are_test_assumptions": true,
+  "phase_instance_checks": 12,
+  "physical_hold_total_seconds": 240.5385050230252,
+  "io_http_samples": 1726,
+  "io_http_max_ms": 65.89488900499418,
+  "io_api_errors": 0,
+  "max_first_match_seconds": 4.566676305985311,
+  "unexpected_release_during_constrained_transitions": 0,
+  "startup_retries": [],
+  "recovery_with_single_slow_transition_seconds": 6.2046042,
+  "recovery_next_two_cycles_percent": [
+    30,
+    30
+  ],
+  "main_process_unchanged": true,
+  "iomanager_process_unchanged": true,
+  "original_relays": [
+    false,
+    false
+  ],
+  "restored_relays": [
+    false,
+    false
+  ]
+}
