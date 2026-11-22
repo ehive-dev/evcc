@@ -22,12 +22,17 @@ responses are diagnostic only and must not be applied by consumers.
 
 Consumers must reject HTTP errors, unsupported versions, `valid != true`, missing
 or non-boolean selected inputs, invalid sequence numbers and missing, negative
-or excessive `age_ms`. Disable HTTP caching. On a failed update, keep the last
-accepted limit and report an error; fail startup if there is no valid initial
-sample. This API does not define a substitute limit for an extended outage.
+or excessive `age_ms`. By default, do not cache acquisition responses.
+The evcc template explicitly shares a bounded 1 s HTTP cache between individual
+contact reads. This can delay observation of a new state or an error by the
+cache window, and cached `age_ms` does not advance. A time-based cache does not
+guarantee one immutable snapshot throughout an evaluation; the delayed-response
+case and measured recovery are documented in the evcc hardware report.
+On a failed update, keep the last accepted limit and report an error; fail
+startup if there is no valid initial sample. This API does not define a
+substitute limit for an extended outage.
 
-The evcc `ehive-one-fnn` template requires this snapshot API (the previously
-released ioManager 1.1.2 does not provide it). Its default maximum age is 5000 ms;
+The evcc `ehive-one-fnn` template requires this snapshot API (available starting with ioManager 1.1.3). Its default maximum age is 5000 ms;
 set `maxagems` above the configured acquisition interval. The default acquisition
 interval is now 1000 ms, matching the packaged configuration. Existing
 `/api/gpio` and `/api/status` responses remain available; their timestamps and
